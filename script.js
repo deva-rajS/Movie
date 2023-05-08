@@ -1,7 +1,8 @@
 "use strict";
 const list = document.querySelector(".movielist");
 const renderMovie = function (data) {
-  const html = `<div class="h-full w-52 bg-gray-200 rounded-md">
+  if (data.title) {
+    const html = `<div class="h-full w-40 sm:w-52 bg-gray-200 rounded-md">
   <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/${
     data.poster_path
   }" alt="img" class=" rounded-md" />
@@ -11,7 +12,8 @@ const renderMovie = function (data) {
   <h2 class="text-gray-700">Rating : ${data.vote_average.toFixed(1)}</h2>
   </div>
 </div>`;
-  list.insertAdjacentHTML("beforeend", html);
+    list.insertAdjacentHTML("beforeend", html);
+  }
 };
 
 fetch(
